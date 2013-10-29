@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>A Sample</title>
+</head>
+<body>
+	<div id="test-content"></div>
+	<button id="get-test">GET TEST</button>
+	<button id="post-test">POST TEST</button>
+	<button id="delete-test">DELETE TEST</button>
+	<button id="put-test">PUT TEST</button>
+</body>
+<script type="text/javascript" src="./js/jquery-1.9.1.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		initButtons();
+	});
+
+	function initButtons() {
+		$("#get-test").click(testGET);
+		$("#post-test").click(testPOST);
+		$("#delete-test").click(testDELETE);
+		$("#put-test").click(testPUT);
+	}
+
+	function testGET() {
+		$.ajax({
+			type : "GET",
+			dataType : "text",
+			url : "demo/Simple",
+			success : function(data) {
+				setContent(data);
+			}
+		});
+	}
+
+	function testPOST() {
+		$.ajax({
+			contentType : "application/json; charset=utf-8",
+			type : "POST",
+			dataType : "text",
+			url : "demo/Simple",
+			data : {
+				id : 'walle'
+			},
+			success : function(data) {
+				setContent(data);
+			}
+		});
+	}
+
+	function testPUT() {
+		$.ajax({
+			type : "PUT",
+			url : "demo/Simple",
+			data : {
+				id : 'test'
+			},
+			success : function(data) {
+				setContent(data);
+			}
+		});
+	}
+
+	function testDELETE() {
+		$.ajax({
+			type : "DELETE",
+			dataType : "text",
+			url : "demo/Simple/walle",
+			success : function(data) {
+				setContent(data);
+			}
+		});
+	}
+
+	function setContent(content) {
+		$("#test-content").text(content);
+	}
+</script>
+</html>
