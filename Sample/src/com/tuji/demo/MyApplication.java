@@ -3,7 +3,7 @@ package com.tuji.demo;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 
-import com.tuji.demo.controller.ColumnsResource;
+import com.tuji.demo.resource.ColumnsResource;
 
 /**
  * 

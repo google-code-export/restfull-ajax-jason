@@ -1,4 +1,4 @@
-package com.tuji.demo.controller;
+package com.tuji.demo.resource;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
